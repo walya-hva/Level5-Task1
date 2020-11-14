@@ -6,9 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.findFragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.fragment_notepad.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import nl.hva.mad.level5_task1.R
 import nl.hva.mad.level5_task1.viewmodel.NoteViewModel
 
@@ -30,9 +36,6 @@ class NotepadFragement : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<Button>(R.id.button_first).setOnClickListener {
-            findNavController().navigate(R.id.action_notepadFragement_to_addNoteFragment)
-        }
         observeAddNoteResult()
 
     }
@@ -41,7 +44,7 @@ class NotepadFragement : Fragment() {
         viewModel.note.observe(viewLifecycleOwner, Observer{ note ->
             note?.let {
                 tvNoteTitle.text = it.title
-                tvLastUpdated.text = getString(R.string.last_updated, it.lastUpdated.toString())
+                tvLastUpdated.text = getString(R.string.last_updated).plus(it.lastUpdated.toString())
                 tvNoteText.text = it.text
             }
         })
