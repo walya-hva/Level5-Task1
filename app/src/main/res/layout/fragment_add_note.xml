@@ -3,22 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".ui.AddNoteFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilNoteTitle"
-        android:padding="8dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:boxBackgroundMode="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:hint="Title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textSize="24sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -26,16 +27,16 @@
         android:id="@+id/tilNoteText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:padding="8dp"
+        app:boxBackgroundMode="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilNoteTitle">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:hint="Note"
-            android:textSize="18sp" />
+            android:textSize="24sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
